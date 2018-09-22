@@ -54,50 +54,71 @@ $(function () {
 
     /* TODO: Write a new test suite named "The menu" */
     describe('The Menu', () => {
-    /* TODO: Write a test that ensures the menu element is
-     * hidden by default. You'll have to analyze the HTML and
-     * the CSS to determine how we're performing the
-     * hiding/showing of the menu element.
-     */
+        /* TODO: Write a test that ensures the menu element is
+         * hidden by default. You'll have to analyze the HTML and
+         * the CSS to determine how we're performing the
+         * hiding/showing of the menu element.
+         */
         it('menu is hidden by default', () => {
             expect($("body").hasClass("menu-hidden")).toBe(true);
         });
-    /* TODO: Write a test that ensures the menu changes
-     * visibility when the menu icon is clicked. This test
-     * should have two expectations: does the menu display when
-     * clicked and does it hide when clicked again.
-     */
-    it('menu changes visibility on click', () => {
-        $(".menu-icon-link").click();
-        expect($("body").hasClass("menu-hidden")).toBe(false);
-        $(".menu-icon-link").click();
-        expect($("body").hasClass("menu-hidden")).toBe(true);
-    });
+        /* TODO: Write a test that ensures the menu changes
+         * visibility when the menu icon is clicked. This test
+         * should have two expectations: does the menu display when
+         * clicked and does it hide when clicked again.
+         */
+        it('menu changes visibility on click', () => {
+            $(".menu-icon-link").click();
+            expect($("body").hasClass("menu-hidden")).toBe(false);
+            $(".menu-icon-link").click();
+            expect($("body").hasClass("menu-hidden")).toBe(true);
+        });
     });
 
 
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', () => {
-   /* TODO: Write a test that ensures when the loadFeed
-     * function is called and completes its work, there is at least
-     * a single .entry element within the .feed container.
-     * Remember, loadFeed() is asynchronous so this test will require
-     * the use of Jasmine's beforeEach and asynchronous done() function.
-     */
-    beforeEach(done => {
-        loadFeed(0, done);
-    });
+        /* TODO: Write a test that ensures when the loadFeed
+         * function is called and completes its work, there is at least
+         * a single .entry element within the .feed container.
+         * Remember, loadFeed() is asynchronous so this test will require
+         * the use of Jasmine's beforeEach and asynchronous done() function.
+         */
+        beforeEach(done => {
+            loadFeed(0, done);
+        });
 
-    it('at least one entry found when loadFeed fucntion is called and done', () => {
-        expect($(".feed .entry").length).toBeGreaterThan(0);
+        it('at least one entry found when loadFeed function is called and done', () => {
+            expect($(".feed .entry").length).toBeGreaterThan(0);
+        });
     });
-});
 
 
     /* TODO: Write a new test suite named "New Feed Selection" */
-    
-    /* TODO: Write a test that ensures when a new feed is loaded
-     * by the loadFeed function that the content actually changes.
-     * Remember, loadFeed() is asynchronous.
-     */
+    describe('New Feed Selection', () => {
+        /* TODO: Write a test that ensures when a new feed is loaded
+         * by the loadFeed function that the content actually changes.
+         * Remember, loadFeed() is asynchronous.
+         */
+        let feedOne,
+            feedTwo;
+
+        beforeEach(done => {
+            // //load first feed
+            loadFeed(0, function () {
+                feedOne = $(".feed").html();
+                done();
+            });
+            // //load second feed
+            loadFeed(1, function () {
+                feedTwo = $(".feed").html();
+                done();
+            });
+        });
+
+        it('when a new feed is loaded by the loadFeed function that the content changes', () => {
+            expect(feedOne === feedTwo).toBe(false);
+        });
+    });
+
 }());
