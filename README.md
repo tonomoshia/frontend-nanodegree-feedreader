@@ -1,13 +1,12 @@
-# Run Project
-
-1. Download the [required project assets](http://github.com/tonomoshia/frontend-nanodegree-feedreader).
-2. Using [Visual Studio Code text editor](https://code.visualstudio.com/), you can install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension.
-3. Press Go Live in the bottom right to open a browser page that shows the site in this project.
-4. The Jasmine tests will run on the bottom of the page.
-
 # Project Overview
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
+
+## Run Project
+
+1. Download the [required project assets](http://github.com/tonomoshia/frontend-nanodegree-feedreader).
+2. Using [Visual Studio Code text editor](https://code.visualstudio.com/), you can install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension.
+3. Press 'Go Live' in the bottom right to open a browser page that shows the site in this project. The index.html page will be page that opens and the Jasmine tests will run on the bottom of the page.
 
 ## Why this Project?
 
