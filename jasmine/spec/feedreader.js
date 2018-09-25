@@ -61,7 +61,6 @@ $(function () {
             // load first feed
             loadFeed(0, function () {
                 feedOne = $(".feed").html();
-                done();
             });
             // load second feed
             loadFeed(1, function () {
