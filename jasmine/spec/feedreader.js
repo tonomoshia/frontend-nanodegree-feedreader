@@ -61,15 +61,15 @@ $(function () {
             // load first feed
             loadFeed(0, function () {
                 feedOne = $(".feed").html();
-            });
             // load second feed
             loadFeed(1, function () {
                 feedTwo = $(".feed").html();
                 done();
             });
+            });
         });
 
-        it('when a new feed is loaded by the loadFeed function that the content changes', () => {
+        it('when a new feed is loaded by the loadFeed function the content changes', () => {
             expect(feedOne === feedTwo).toBe(false);
         });
     });
